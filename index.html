@@ -6,6 +6,7 @@
   <title>Татьяна — креатор & промпт-инженер</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="portfolio.css" />
 </head>
@@ -37,33 +38,68 @@
 
   <main>
     <section class="hero">
-      <p class="hero-name" data-reveal>Татьяна</p>
-      <p class="hero-kicker" data-reveal>креатор · промпт-инженер</p>
-      <h1 class="hero-title">
-        <span class="line" data-reveal><span class="inner">Идеи в образы</span></span>
-        <span class="line" data-reveal><span class="inner">и точные инструкции для ИИ</span></span>
-      </h1>
-      <p class="hero-lead" data-reveal>
-        Визуальные концепции, сценарии для генерации и промпты, которые дают предсказуемый результат — без случайного «магического» шума.
-      </p>
-      <div class="hero-cta" data-reveal>
-        <a class="btn btn-primary" href="#creator">смотреть работы</a>
-        <a class="btn btn-ghost" href="#contact">связаться</a>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="hero-name" data-reveal>Татьяна</p>
+          <p class="hero-kicker" data-reveal>креатор · промпт-инженер</p>
+          <h1 class="hero-title">
+            <span class="line" data-reveal><span class="inner">Идеи в образы</span></span>
+            <span class="line" data-reveal><span class="inner">и точные инструкции для ИИ</span></span>
+          </h1>
+          <p class="hero-lead" data-reveal>
+            Визуальные концепции, сценарии для генерации и промпты, которые дают предсказуемый результат — без случайного «магического» шума.
+          </p>
+          <div class="hero-cta" data-reveal>
+            <a class="btn btn-primary" href="#creator">смотреть работы</a>
+            <a class="btn btn-ghost" href="#contact">связаться</a>
+          </div>
+        </div>
+        <figure class="hero-visual" data-reveal>
+          <img
+            src="https://images.unsplash.com/photo-1618005182384-a83a2bdab72c?auto=format&amp;fit=crop&amp;w=900&amp;h=1120&amp;q=85"
+            width="900"
+            height="1120"
+            alt="Абстрактная визуальная композиция"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
       </div>
     </section>
 
     <section id="about" class="section about">
       <h2 class="section-title" data-reveal>Обо мне</h2>
-      <div class="about-grid">
-        <p class="about-text" data-reveal>
-          Соединяю творческое видение и инженерную ясность: от настроения и референсов до структуры промпта, негативных подсказок и итераций.
-        </p>
-        <ul class="about-tags" data-reveal>
-          <li>Midjourney / SD / DALL·E</li>
-          <li>LLM-воркфлоу</li>
-          <li>визуальный сторителлинг</li>
-          <li>бренд и персонажи</li>
-        </ul>
+      <div class="about-layout">
+        <div class="about-photo-block" data-reveal>
+          <div class="creator-photo" id="creator-photo-wrap">
+            <img
+              id="creator-photo-img"
+              class="creator-photo__img"
+              src="images/creator.jpg"
+              width="520"
+              height="693"
+              alt="Татьяна — креатор и промпт-инженер"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="creator-photo__fallback" aria-hidden="true">
+              <span class="creator-photo__letter">Т</span>
+            </div>
+          </div>
+          <p class="creator-caption">креатор &amp; промпт-инженер</p>
+          <p class="creator-hint">Положите своё фото в папку <code>images</code> с именем <code>creator.jpg</code></p>
+        </div>
+        <div class="about-grid">
+          <p class="about-text" data-reveal>
+            Соединяю творческое видение и инженерную ясность: от настроения и референсов до структуры промпта, негативных подсказок и итераций.
+          </p>
+          <ul class="about-tags" data-reveal>
+            <li>Midjourney / SD / DALL·E</li>
+            <li>LLM-воркфлоу</li>
+            <li>визуальный сторителлинг</li>
+            <li>бренд и персонажи</li>
+          </ul>
+        </div>
       </div>
     </section>
 

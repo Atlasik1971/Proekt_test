@@ -7,18 +7,24 @@ const CREATOR_PROJECTS = [
     desc: "Визуальная история в 12 кадрах: цвет, композиция, единый стиль для соцсетей.",
     url: "https://behance.net/",
     badge: "визуал",
+    image:
+      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&h=450&q=85",
   },
   {
     title: "Персонаж для бренда",
     desc: "Маскот и ключевые ракурсы для кампании — от скетча до финальных рендеров.",
     url: "https://www.artstation.com/",
     badge: "персонаж",
+    image:
+      "https://images.unsplash.com/photo-1634014237911-39f1ee7d4344?auto=format&fit=crop&w=800&h=450&q=85",
   },
   {
     title: "Обложки и превью",
     desc: "Пакет обложек для подкаста/стримов с узнаваемой графикой.",
     url: "https://www.figma.com/",
     badge: "бренд",
+    image:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&h=450&q=85",
   },
 ];
 
@@ -28,18 +34,24 @@ const PROMPT_PROJECTS = [
     desc: "Структура промпта + негатив + стили: воспроизводимый результат в MJ/SD.",
     url: "https://github.com/",
     badge: "промпт",
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&h=450&q=85",
   },
   {
     title: "Пайплайн: идея → серия",
     desc: "Цепочка из 4 шагов с LLM и генерацией изображений для контент-плана.",
     url: "https://github.com/",
     badge: "воркфлоу",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&h=450&q=85",
   },
   {
     title: "Кейс: e-commerce визуал",
     desc: "Промпты под единый свет и фон для каталога без фотостудии.",
     url: "https://notion.so/",
     badge: "кейс",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&h=450&q=85",
   },
 ];
 
@@ -50,11 +62,16 @@ function renderCards(container, items) {
   container.innerHTML = items
     .map(
       (p) => `
-    <a class="card project-link" href="${escapeAttr(p.url)}" data-external="1" target="_blank" rel="noopener noreferrer">
-      <span class="card-badge">${escapeHtml(p.badge)}</span>
-      <h3 class="card-title">${escapeHtml(p.title)}</h3>
-      <p class="card-desc">${escapeHtml(p.desc)}</p>
-      <span class="card-arrow">перейти к проекту ${ARROW_SVG}</span>
+    <a class="card project-link" data-reveal href="${escapeAttr(p.url)}" data-external="1" target="_blank" rel="noopener noreferrer">
+      <div class="card-thumb">
+        <img src="${escapeAttr(p.image)}" alt="" width="800" height="450" loading="lazy" decoding="async" />
+      </div>
+      <div class="card-body">
+        <span class="card-badge">${escapeHtml(p.badge)}</span>
+        <h3 class="card-title">${escapeHtml(p.title)}</h3>
+        <p class="card-desc">${escapeHtml(p.desc)}</p>
+        <span class="card-arrow">перейти к проекту ${ARROW_SVG}</span>
+      </div>
     </a>`
     )
     .join("");
@@ -90,6 +107,21 @@ function initReveal() {
     n.style.transitionDelay = `${Math.min(i * 0.05, 0.35)}s`;
     io.observe(n);
   });
+}
+
+function initCreatorPhoto() {
+  const wrap = document.getElementById("creator-photo-wrap");
+  const img = document.getElementById("creator-photo-img");
+  if (!wrap || !img) return;
+
+  const markLoaded = () => {
+    if (img.naturalWidth > 0) wrap.classList.add("creator-photo--loaded");
+  };
+
+  img.addEventListener("load", markLoaded);
+  img.addEventListener("error", () => wrap.classList.remove("creator-photo--loaded"));
+
+  if (img.complete) markLoaded();
 }
 
 function initProjectTransitions() {
@@ -149,5 +181,6 @@ if (creatorEl) renderCards(creatorEl, CREATOR_PROJECTS);
 if (promptEl) renderCards(promptEl, PROMPT_PROJECTS);
 
 initTheme();
+initCreatorPhoto();
 initReveal();
 initProjectTransitions();
