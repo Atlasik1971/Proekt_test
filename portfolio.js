@@ -1,6 +1,8 @@
 /**
  * Замените ссылки и тексты на свои — блоки ниже единственное место правки проектов.
  */
+const REQUEST_EMAIL = "you@example.com";
+
 const CREATOR_PROJECTS = [
   {
     title: "Серия «Неон и тишина»",
@@ -16,7 +18,7 @@ const CREATOR_PROJECTS = [
     url: "https://www.artstation.com/",
     badge: "персонаж",
     image:
-      "https://images.unsplash.com/photo-1634014237911-39f1ee7d4344?auto=format&fit=crop&w=800&h=450&q=85",
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&h=450&q=85",
   },
   {
     title: "Обложки и превью",
@@ -64,7 +66,7 @@ function renderCards(container, items) {
       (p) => `
     <a class="card project-link" data-reveal href="${escapeAttr(p.url)}" data-external="1" target="_blank" rel="noopener noreferrer">
       <div class="card-thumb">
-        <img src="${escapeAttr(p.image)}" alt="" width="800" height="450" loading="lazy" decoding="async" />
+        <img src="${escapeAttr(p.image)}" alt="" width="800" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
       </div>
       <div class="card-body">
         <span class="card-badge">${escapeHtml(p.badge)}</span>
@@ -106,6 +108,87 @@ function initReveal() {
   nodes.forEach((n, i) => {
     n.style.transitionDelay = `${Math.min(i * 0.05, 0.35)}s`;
     io.observe(n);
+  });
+}
+
+function initRequestModal() {
+  const modal = document.getElementById("request-modal");
+  const form = document.getElementById("request-form");
+  const tariffSelect = document.getElementById("request-tariff");
+  if (!modal || !form) return;
+
+  let lastFocus = null;
+
+  const open = (tariff) => {
+    lastFocus = document.activeElement;
+    if (tariff && tariffSelect) {
+      const opt = [...tariffSelect.options].find((o) => o.value === tariff);
+      tariffSelect.value = opt ? tariff : "";
+    }
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("body--modal-open");
+    const first = form.querySelector("input, select, textarea, button");
+    window.setTimeout(() => first?.focus(), 50);
+  };
+
+  const close = () => {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("body--modal-open");
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    }
+  };
+
+  document.querySelectorAll(".js-open-request").forEach((btn) => {
+    btn.addEventListener("click", () => open(btn.getAttribute("data-tariff") || ""));
+  });
+
+  modal.querySelectorAll(".js-close-modal").forEach((el) => {
+    el.addEventListener("click", close);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) {
+      close();
+    }
+  });
+
+  form.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener("click", () => window.setTimeout(close, 80));
+  });
+}
+
+function initRequestForm() {
+  const form = document.getElementById("request-form");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const fd = new FormData(form);
+    const name = fd.get("name") || "";
+    const email = fd.get("email") || "";
+    const contact = fd.get("contact") || "";
+    const tariff = fd.get("tariff") || "";
+    const message = fd.get("message") || "";
+
+    const body = [
+      `Имя: ${name}`,
+      `Email: ${email}`,
+      contact ? `Телефон / Telegram: ${contact}` : "",
+      tariff ? `Тариф: ${tariff}` : "",
+      "",
+      message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const subject = encodeURIComponent("Заявка с сайта портфолио");
+    const bodyEnc = encodeURIComponent(body);
+    window.location.href = `mailto:${REQUEST_EMAIL}?subject=${subject}&body=${bodyEnc}`;
   });
 }
 
@@ -182,5 +265,7 @@ if (promptEl) renderCards(promptEl, PROMPT_PROJECTS);
 
 initTheme();
 initCreatorPhoto();
+initRequestModal();
+initRequestForm();
 initReveal();
 initProjectTransitions();

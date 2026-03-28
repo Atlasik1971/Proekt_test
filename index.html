@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Татьяна — креатор & промпт-инженер</title>
+  <title>Идеи в образы и точные промпты для ИИ — Татьяна</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -23,6 +23,8 @@
         <a href="#about">обо мне</a>
         <a href="#creator">креаторство</a>
         <a href="#prompts">промпты</a>
+        <a href="#pricing">тарифы</a>
+        <a href="#offer">оферта</a>
         <a href="#contact">контакт</a>
       </nav>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true" aria-label="Переключить на светлую тему" title="Тема">
@@ -42,15 +44,16 @@
         <div class="hero-copy">
           <p class="hero-name" data-reveal>Татьяна</p>
           <p class="hero-kicker" data-reveal>креатор · промпт-инженер</p>
-          <h1 class="hero-title">
-            <span class="line" data-reveal><span class="inner">Идеи в образы</span></span>
-            <span class="line" data-reveal><span class="inner">и точные инструкции для ИИ</span></span>
+          <h1 class="hero-title hero-title--site">
+            <span class="line"><span class="inner hero-title__shine">Идеи в образы</span></span>
+            <span class="line"><span class="inner hero-title__shine">и точные промпты для ИИ</span></span>
           </h1>
           <p class="hero-lead" data-reveal>
             Визуальные концепции, сценарии для генерации и промпты, которые дают предсказуемый результат — без случайного «магического» шума.
           </p>
           <div class="hero-cta" data-reveal>
-            <a class="btn btn-primary" href="#creator">смотреть работы</a>
+            <button type="button" class="btn btn-primary btn--request js-open-request">оставить заявку</button>
+            <a class="btn btn-ghost" href="#creator">смотреть работы</a>
             <a class="btn btn-ghost" href="#contact">связаться</a>
           </div>
         </div>
@@ -119,9 +122,94 @@
       <div class="cards" id="prompt-cards"></div>
     </section>
 
+    <section id="pricing" class="section pricing">
+      <div class="section-head" data-reveal>
+        <h2 class="section-title">Тарифы и стоимость</h2>
+        <p class="section-desc">
+          Ориентиры по пакетам. Итоговая цена фиксируется после короткого брифа. Для юрлиц возможен договор и счёт — уточняйте в заявке.
+        </p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card" data-reveal>
+          <h3 class="price-card__name">Старт</h3>
+          <p class="price-card__price"><span class="price-card__value">4&nbsp;900</span>&nbsp;₽</p>
+          <p class="price-card__period">разово</p>
+          <ul class="price-card__list">
+            <li>онлайн-консультация до 30 минут</li>
+            <li>разбор задачи и рекомендации по инструментам</li>
+            <li>до 3 готовых промптов «под ключ»</li>
+          </ul>
+          <button type="button" class="btn btn-ghost price-card__cta js-open-request" data-tariff="Старт">Оставить заявку</button>
+        </article>
+        <article class="price-card price-card--featured" data-reveal>
+          <span class="price-card__badge">популярно</span>
+          <h3 class="price-card__name">Базовый</h3>
+          <p class="price-card__price"><span class="price-card__value">14&nbsp;900</span>&nbsp;₽</p>
+          <p class="price-card__period">за проект</p>
+          <ul class="price-card__list">
+            <li>визуальная серия или бренд-персонаж (до 10 кадров / вариантов)</li>
+            <li>промпты + негативы + параметры для вашего стека</li>
+            <li>1 раунд правок по результату</li>
+          </ul>
+          <button type="button" class="btn btn-primary price-card__cta js-open-request" data-tariff="Базовый">Оставить заявку</button>
+        </article>
+        <article class="price-card" data-reveal>
+          <h3 class="price-card__name">Про</h3>
+          <p class="price-card__price"><span class="price-card__value">34&nbsp;900</span>&nbsp;₽</p>
+          <p class="price-card__period">за проект</p>
+          <ul class="price-card__list">
+            <li>комплекс: визуал + промпт-пайплайн под контент-план</li>
+            <li>документация шагов и шаблоны для команды</li>
+            <li>до 3 раундов итераций в согласованные сроки</li>
+          </ul>
+          <button type="button" class="btn btn-ghost price-card__cta js-open-request" data-tariff="Про">Оставить заявку</button>
+        </article>
+      </div>
+      <p class="pricing-footnote" data-reveal>
+        Нужен индивидуальный объём, абонемент или сопровождение? Укажите это в заявке — подберём формат и смету.
+      </p>
+    </section>
+
+    <section id="offer" class="section offer">
+      <h2 class="section-title" data-reveal>Публичная оферта</h2>
+      <div class="offer-box" data-reveal>
+        <p class="offer-lead">
+          Ниже — краткая выдержка. Полный текст публичной оферты рекомендуется оформить с юристом под ваш статус (самозанятый, ИП, ООО) и выложить отдельным PDF.
+        </p>
+        <div class="offer-content">
+          <p>
+            <strong>Исполнитель:</strong> Татьяна (укажите в документе ФИО, статус, ИНН, контакты и платёжные реквизиты).
+          </p>
+          <p>
+            <strong>1. Предмет.</strong> Исполнитель оказывает услуги в области визуального креаторства и промпт-инжиниринга (подбор структуры запросов, сопровождение генерации, консультации) в объёме, согласованном сторонами после принятия заявки.
+          </p>
+          <p>
+            <strong>2. Акцепт оферты.</strong> Направление заявки с сайта, оплата счёта или письменное подтверждение заказа считается полным и безоговорочным акцептом условий настоящей оферты.
+          </p>
+          <p>
+            <strong>3. Стоимость и оплата.</strong> Цены указаны в разделе «Тарифы» на сайте либо в индивидуальном предложении. Оплата производится способом, согласованным с Исполнителем, до начала или по этапам работ (по договорённости).
+          </p>
+          <p>
+            <strong>4. Сроки и результат.</strong> Сроки выполнения согласуются после брифа. Результат передаётся в цифровом виде согласованными каналами. Права на использование итоговых материалов определяются отдельным соглашением или приложением к оферте.
+          </p>
+          <p>
+            <strong>5. Ответственность.</strong> Стороны несут ответственность в пределах, установленных законодательством РФ. Исполнитель не отвечает за сбои сторонних сервисов ИИ и за использование результатов Заказчиком в нарушение прав третьих лиц.
+          </p>
+          <p>
+            <strong>6. Заключительные положения.</strong> Замените этот блок на актуальный юридически завершённый текст и приложите подписанную или опубликованную на сайте версию оферты.
+          </p>
+        </div>
+        <a class="offer-pdf btn btn-ghost" href="#" download>скачать полный текст (PDF)</a>
+        <p class="offer-note">Заглушка ссылки: положите файл оферты в проект и укажите путь, например <code>docs/public-offer.pdf</code>.</p>
+      </div>
+    </section>
+
     <section id="contact" class="section contact">
       <h2 class="section-title" data-reveal>Контакт</h2>
       <p class="contact-lead" data-reveal>Готов к коллаборациям и коммерческим задачам.</p>
+      <div class="contact-actions" data-reveal>
+        <button type="button" class="btn btn-primary btn--request-lg js-open-request">Оставить заявку</button>
+      </div>
       <div class="contact-links" data-reveal>
         <a class="contact-pill" href="mailto:you@example.com">email</a>
         <a class="contact-pill" href="https://t.me/" target="_blank" rel="noopener noreferrer">telegram</a>
@@ -131,8 +219,63 @@
   </main>
 
   <footer class="footer">
-    <span>© <span id="year"></span> · Татьяна</span>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> · Татьяна</span>
+      <nav class="footer-nav" aria-label="Юридическая информация">
+        <a href="#pricing">Тарифы</a>
+        <a href="#offer">Публичная оферта</a>
+        <button type="button" class="footer-nav__btn js-open-request">Заявка</button>
+      </nav>
+    </div>
   </footer>
+
+  <div
+    class="modal"
+    id="request-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="request-modal-title"
+  >
+    <div class="modal__backdrop js-close-modal" tabindex="-1"></div>
+    <div class="modal__panel">
+      <button type="button" class="modal__close js-close-modal" aria-label="Закрыть окно">&times;</button>
+      <h2 class="modal__title" id="request-modal-title">Оставить заявку</h2>
+      <p class="modal__lead">Опишите задачу — отвечу с ориентиром по срокам и стоимости.</p>
+      <form class="request-form" id="request-form" novalidate>
+        <label class="request-form__field">
+          <span class="request-form__label">Имя</span>
+          <input type="text" name="name" required autocomplete="name" class="request-form__input" placeholder="Как к вам обращаться" />
+        </label>
+        <label class="request-form__field">
+          <span class="request-form__label">Email</span>
+          <input type="email" name="email" required autocomplete="email" class="request-form__input" placeholder="you@example.com" />
+        </label>
+        <label class="request-form__field">
+          <span class="request-form__label">Телефон или Telegram</span>
+          <input type="text" name="contact" autocomplete="tel" class="request-form__input" placeholder="+7 … или @username" />
+        </label>
+        <label class="request-form__field">
+          <span class="request-form__label">Тариф</span>
+          <select name="tariff" class="request-form__input" id="request-tariff">
+            <option value="">Не выбрано</option>
+            <option value="Старт">Старт — 4 900 ₽</option>
+            <option value="Базовый">Базовый — 14 900 ₽</option>
+            <option value="Про">Про — 34 900 ₽</option>
+            <option value="Индивидуально">Индивидуальный расчёт</option>
+          </select>
+        </label>
+        <label class="request-form__field request-form__field--full">
+          <span class="request-form__label">Сообщение</span>
+          <textarea name="message" rows="4" class="request-form__input request-form__textarea" placeholder="Задача, сроки, ссылки на референсы…"></textarea>
+        </label>
+        <p class="request-form__consent">
+          Нажимая «Отправить», вы соглашаетесь с условиями <a href="#offer">публичной оферты</a>.
+        </p>
+        <button type="submit" class="btn btn-primary request-form__submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
 
   <div class="transition-overlay" id="page-transition" aria-hidden="true"></div>
 
