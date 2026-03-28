@@ -110,6 +110,37 @@ function initProjectTransitions() {
   });
 }
 
+const THEME_KEY = "portfolio-theme";
+
+function getInitialTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  if (saved === "light" || saved === "dark") return saved;
+  if (window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
+  return "dark";
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem(THEME_KEY, theme);
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const isDark = theme === "dark";
+  btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+  btn.setAttribute(
+    "aria-label",
+    isDark ? "Переключить на светлую тему" : "Переключить на тёмную тему"
+  );
+  btn.title = isDark ? "Светлая тема" : "Тёмная тема";
+}
+
+function initTheme() {
+  applyTheme(getInitialTheme());
+  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+}
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const creatorEl = document.getElementById("creator-cards");
@@ -117,5 +148,6 @@ const promptEl = document.getElementById("prompt-cards");
 if (creatorEl) renderCards(creatorEl, CREATOR_PROJECTS);
 if (promptEl) renderCards(promptEl, PROMPT_PROJECTS);
 
+initTheme();
 initReveal();
 initProjectTransitions();

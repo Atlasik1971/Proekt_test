@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Портфолио — креатор & промпт-инженер</title>
+  <title>Татьяна — креатор & промпт-инженер</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -13,19 +13,31 @@
   <div class="noise" aria-hidden="true"></div>
   <div class="orb orb-a" aria-hidden="true"></div>
   <div class="orb orb-b" aria-hidden="true"></div>
+  <div class="orb orb-c" aria-hidden="true"></div>
 
   <header class="header">
-    <a href="#" class="logo" data-reveal>портфолио</a>
-    <nav class="nav" data-reveal>
-      <a href="#about">обо мне</a>
-      <a href="#creator">креаторство</a>
-      <a href="#prompts">промпты</a>
-      <a href="#contact">контакт</a>
-    </nav>
+    <a href="#" class="logo" data-reveal>Татьяна</a>
+    <div class="header-actions">
+      <nav class="nav" data-reveal>
+        <a href="#about">обо мне</a>
+        <a href="#creator">креаторство</a>
+        <a href="#prompts">промпты</a>
+        <a href="#contact">контакт</a>
+      </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true" aria-label="Переключить на светлую тему" title="Тема">
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </span>
+      </button>
+    </div>
   </header>
 
   <main>
     <section class="hero">
+      <p class="hero-name" data-reveal>Татьяна</p>
       <p class="hero-kicker" data-reveal>креатор · промпт-инженер</p>
       <h1 class="hero-title">
         <span class="line" data-reveal><span class="inner">Идеи в образы</span></span>
@@ -83,7 +95,7 @@
   </main>
 
   <footer class="footer">
-    <span>© <span id="year"></span> · портфолио</span>
+    <span>© <span id="year"></span> · Татьяна</span>
   </footer>
 
   <div class="transition-overlay" id="page-transition" aria-hidden="true"></div>
