@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Портфолио — креатор & промпт-инженер</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="portfolio.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="header">
+    <a href="#" class="logo" data-reveal>портфолио</a>
+    <nav class="nav" data-reveal>
+      <a href="#about">обо мне</a>
+      <a href="#creator">креаторство</a>
+      <a href="#prompts">промпты</a>
+      <a href="#contact">контакт</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="hero-kicker" data-reveal>креатор · промпт-инженер</p>
+      <h1 class="hero-title">
+        <span class="line" data-reveal><span class="inner">Идеи в образы</span></span>
+        <span class="line" data-reveal><span class="inner">и точные инструкции для ИИ</span></span>
+      </h1>
+      <p class="hero-lead" data-reveal>
+        Визуальные концепции, сценарии для генерации и промпты, которые дают предсказуемый результат — без случайного «магического» шума.
+      </p>
+      <div class="hero-cta" data-reveal>
+        <a class="btn btn-primary" href="#creator">смотреть работы</a>
+        <a class="btn btn-ghost" href="#contact">связаться</a>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <h2 class="section-title" data-reveal>Обо мне</h2>
+      <div class="about-grid">
+        <p class="about-text" data-reveal>
+          Соединяю творческое видение и инженерную ясность: от настроения и референсов до структуры промпта, негативных подсказок и итераций.
+        </p>
+        <ul class="about-tags" data-reveal>
+          <li>Midjourney / SD / DALL·E</li>
+          <li>LLM-воркфлоу</li>
+          <li>визуальный сторителлинг</li>
+          <li>бренд и персонажи</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="creator" class="section projects">
+      <div class="section-head" data-reveal>
+        <h2 class="section-title">Креаторские проекты</h2>
+        <p class="section-desc">Визуальные серии, обложки, концепт-арты и эксперименты.</p>
+      </div>
+      <div class="cards" id="creator-cards"></div>
+    </section>
+
+    <section id="prompts" class="section projects projects--alt">
+      <div class="section-head" data-reveal>
+        <h2 class="section-title">Промпт-инжиниринг</h2>
+        <p class="section-desc">Шаблоны, пайплайны и кейсы: от идеи до воспроизводимого результата.</p>
+      </div>
+      <div class="cards" id="prompt-cards"></div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2 class="section-title" data-reveal>Контакт</h2>
+      <p class="contact-lead" data-reveal>Готов к коллаборациям и коммерческим задачам.</p>
+      <div class="contact-links" data-reveal>
+        <a class="contact-pill" href="mailto:you@example.com">email</a>
+        <a class="contact-pill" href="https://t.me/" target="_blank" rel="noopener noreferrer">telegram</a>
+        <a class="contact-pill" href="https://behance.net/" target="_blank" rel="noopener noreferrer">behance</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> · портфолио</span>
+  </footer>
+
+  <div class="transition-overlay" id="page-transition" aria-hidden="true"></div>
+
+  <script src="portfolio.js"></script>
+</body>
+</html>
